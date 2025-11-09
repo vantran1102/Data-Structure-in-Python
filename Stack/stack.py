@@ -22,7 +22,15 @@ class Stack:
             new_node.next = self.top
             self.top = new_node
         self.height +=1
-    
+    def is_empty(self):
+        return len(self.stack_list) == 0
+
+    def peek(self):
+        if self.is_empty():
+            return None
+        else:
+            return self.stack_list[-1]
+        
     def pop(self):
         temp = self.top
         if self.height == 0:
@@ -32,6 +40,38 @@ class Stack:
             temp.next = None
         self.height -= 1
         return temp
+    
+class Stack_List:
+    def __init__(self):
+        self.stack_list = []
+
+    def print_stack(self):
+        for i in range(len(self.stack_list)-1, -1, -1):
+            print(self.stack_list[i])
+
+    def is_empty(self):
+        return len(self.stack_list) == 0
+
+    def peek(self):
+        if self.is_empty():
+            return None
+        else:
+            return self.stack_list[-1]
+
+    def size(self):
+        return len(self.stack_list)
+
+    def push(self, value):
+        self.stack_list.append(value)
+
+    def pop(self):
+        if self.is_empty():
+            return None
+        else:
+            return self.stack_list.pop()
+
+
+
 class Queue:
     def __init__(self,value):
         new_node = Node(value)
@@ -66,7 +106,7 @@ class Queue:
             temp.next = None
         self.height -= 1
         return temp
-
+    
 
 my_string = "hello"
 char_array = list(my_string)
@@ -94,4 +134,6 @@ myqueue.print_queue()
 myqueue.dequeue()
 print("Print Queue after Dequeue")
 myqueue.print_queue()
+
+
 
