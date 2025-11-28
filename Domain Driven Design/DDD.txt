@@ -1,0 +1,32 @@
+Restaurant Waitlist DDD
+1/ Define the scope:
+    - Party Size
+    - Add info to Waitlist
+    - Position & Wait time
+    Host task:
+    - Add/Remove/Update/Notify
+    - Mark Status: Notified/ Arrived/ No-Show/ Canceled/ Seated
+2/ Ubiquitous language (every position uses the same language)
+    - PartySize: a number of people in a group
+    - Party: a group of people
+    - Status: Notified/ Arrived/ No-Show/ Canceled/ Seated/ Waitting
+    - WaitlistEntry: party's record on Waitlist
+    - PreferredSeating: Indoor/ Outdoor/ Patio
+    - QuoteWaitTime: estimate wait time
+    - Positon: position of party on the list
+3/ Bounded Text
+    Waitlist Management:
+        - Manage waiting parties, including: walk-in, online, phone
+        - Estimate wait time
+        - Update Queue Position
+        - Track Status (Notified/ Arrived/ No-Show/ Canceled/ Seated)
+    Seat & Table Management
+        - Table layout
+        - Capacites
+        - Availability
+        - Appropriate Table base on PreferredSeating
+    Guest Communication:
+        - Guest Notification & Confirmation
+        - Queue Change
+        - Recorded Response (Arrived/ No-Show/ Canceled)
+        
