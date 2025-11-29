@@ -14,7 +14,7 @@ Restaurant Waitlist DDD
     - PreferredSeating: Indoor/ Outdoor/ Patio
     - QuoteWaitTime: estimate wait time
     - Positon: position of party on the list
-3/ Bounded Text
+3/ Bounded Text - Spilt system into logical areas
     Waitlist Management:
         - Manage waiting parties, including: walk-in, online, phone
         - Estimate wait time
@@ -29,4 +29,39 @@ Restaurant Waitlist DDD
         - Guest Notification & Confirmation
         - Queue Change
         - Recorded Response (Arrived/ No-Show/ Canceled)
-        
+4/ Entities and Value Object
+        Value Object: 
+            - PartySize
+            - QuoteWaitTime
+            - Contact info
+        Entities:
+            * Identity: entry_id
+            * Field: 
+                - location_id
+                - party_size (PartySize)
+                - contact_info(Contact_info)
+                - status (enum)
+                - position (int)
+                - quote_wait (QuoteWaitTime)
+                - preferred_seating(PreferredSeating)
+                - nofified_at/notified_at/seated_at
+        Aggregate: Waitlist
+            * Root: Waitlist
+            * Entities:
+                - Add new party
+                - Notidfied next party
+                - Seat Party
+                - Cancel/ Mark No-Show
+5/ Respository - get and save Waitlist Aggregate
+    Waitlist Respository: Provide method for add/notify/remove and storing user info
+
+6/ Service
+    - Add party to waitlist service
+    - Notify when table ready
+
+7/ Domain Events - Communication between Bounded Context
+    - Party Added To Waitlist
+    - Party Removed from waitlist
+    - Party Notified
+    - Party Seated
+    - Party Marked No Show
